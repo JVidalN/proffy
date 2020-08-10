@@ -1,0 +1,50 @@
+@hostname = http://localhost
+@port = 3333
+@host = {{hostname}}:{{port}}
+
+# @name CreateClass
+POST {{host}}/classes
+content-type: application/json
+
+{
+    "name": "Jean Vidal",
+    "avatar": "https://avatars1.githubusercontent.com/u/7527478?s=460&u=989bc8f53c51296ad782b05ea09159c9404dc73b&v=4",
+    "whatsapp": "71991618931",
+    "bio": "Apaixonado por tecnologia com aprimoramento constantemente de conhecimento com cursos, projetos. Habitualmente explora soluções open source para resolver os problemas de desenvolvimento do dia-a-dia.",
+    "subject": "Lógica de Programação",
+    "cost": 80,
+    "schedule": [
+      {
+        "week_day": 1, "from": "8:00", "to": "12:00"
+      },
+      {
+        "week_day": 3, "from": "10:00", "to": "18:00"
+      },
+      {
+        "week_day": 4, "from": "8:00", "to": "12:00"
+      }
+    ]
+}
+
+###
+
+# @name ListClasses
+GET {{host}}/classes
+    ?week_day=2
+    &subject=Banco de Dados
+    &time=11:00
+
+###
+
+# @name CreateConnections
+POST {{host}}/connections
+content-type: application/json
+
+{
+  "user_id": 1
+}
+
+###
+
+# @name TotalConnections
+GET {{host}}/connections
